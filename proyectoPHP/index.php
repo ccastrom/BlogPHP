@@ -4,6 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Blog de videojuegos</title>
+        <link rel="stylesheet" type="text/css" href="../assets/css/style.css"/>
     </head>
     <body>
         <!-- Cabecera -->
@@ -13,7 +14,8 @@
                 <a href="index.php">
                     Blog de videojuegos
                 </a>
-            </div>
+            </div>  
+            <!-- menu-->
             <nav id="menu">
                 <ul>
                     <li>
@@ -38,8 +40,9 @@
                         <a href="index.php">Contacto</a>
                     </li>
                 </ul>
-
             </nav>
+            <div class="clearfix"> </div>
+
         </header>
         <div id="contenedor">
             <!-- Barra lateral -->
@@ -78,35 +81,50 @@
             <div id="principal">
                 <h1>Ultimas entradas</h1>
                 <article class="entrada">
-                    <h2>Titulo de mi entrada</h2>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing 
-                        elit. Maecenas consectetur.                      
-                    </p>
+                    <a href="">
+                        <h2>Titulo de mi entrada</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing 
+                            elit. Maecenas consectetur.                      
+                        </p>
+                    </a>
+
                 </article>
                 <article class="entrada">
-                    <h2>Titulo de mi entrada</h2>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing 
-                        elit. Maecenas consectetur.                      
-                    </p>
+                    <a href="">
+                        <h2>Titulo de mi entrada</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing 
+                            elit. Maecenas consectetur.                      
+                        </p>
+                    </a>
                 </article>
                 <article class="entrada">
-                    <h2>Titulo de mi entrada</h2>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing 
-                        elit. Maecenas consectetur.                      
-                    </p>
+                    <a href="">
+                        <h2>Titulo de mi entrada</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing 
+                            elit. Maecenas consectetur.                      
+                        </p>
+                    </a>
                 </article>
                 <article class="entrada">
-                    <h2>Titulo de mi entrada</h2>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing 
-                        elit. Maecenas consectetur.                      
-                    </p>
+                    <a href="">
+                        <h2>Titulo de mi entrada</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing 
+                            elit. Maecenas consectetur.                      
+                        </p>
+                    </a>
                 </article>
+                <div id="ver-todas">
+                    <a href="">Ver todas las entradas</a>
+                </div>
 
             </div>
+            <!-- fin principal-->
+            
+            <div class="clearfix"></div>
         </div>
         <!-- Pie de pagina -->
         <footer id="pie">
