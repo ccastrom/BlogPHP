@@ -1,6 +1,7 @@
 <?php
-session_start();
+
 if (isset($_POST)) {
+    require_once 'includes/conexion.php';
     /* Like an if */
     $nombre = isset($_POST['nombre']) ? $_POST['nombre'] : false;
     $apellidos = isset($_POST['apellidos']) ? $_POST['apellidos'] : false;
@@ -44,9 +45,21 @@ if (isset($_POST)) {
     if (count($errores) == 0) {
         
         $guardar_usuario = true;
+        //CIFRAR CONTRASEÑA
+        $password_segura= password_hash($password,PASSWORD_BCRYPT,['cost'=>4]);
         //INSERTAR EN LA BASE DE DATOS
+        $query="INSERT INTO usuarios VALUES(NULL,'$nombre','$apellidos','$email','$password_segura',CURDATE());";
+        $insert= mysqli_query($db,$query);
+        
+        
+        if($insert){
+            $_SESSION['completado']='El registro se ha completado con exito';
+        }else{
+            $_SESSION['errores']['general']='Fallo al guardar el usuario';
+        }
     }else{
         $_SESSION['errores']=$errores;
-        header('Location: index.php');
+        
     }
 }
+header('Location: index.php');

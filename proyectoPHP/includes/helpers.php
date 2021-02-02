@@ -8,5 +8,15 @@ function mostrarError($errores,$campo){
     return $alerta;
 }
 function borrarErrores(){
-    unset($_SESSION['errores']);
+    $borrado=false;
+    if(isset($_SESSION['errores'])){
+        unset($_SESSION['errores']);
+    }
+    
+    if(isset($_SESSION['completado'])){
+        unset($_SESSION['completado']);
+    }
+    return $borrado;
+    
+    
 }
