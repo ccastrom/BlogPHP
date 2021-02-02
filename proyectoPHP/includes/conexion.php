@@ -9,6 +9,10 @@ if(mysqli_connect_errno()){
 }
 mysqli_query($db, "SET NAMES 'utf8'");
 
+//INICIAR LA SESION
+session_start();
+
+
 
 
 
