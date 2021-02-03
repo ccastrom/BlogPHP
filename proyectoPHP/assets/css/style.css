@@ -150,6 +150,19 @@ input[type="submit"],
     padding: 7px;
     
 }
+.boton{
+    text-align: center;
+    width: 130px;
+}
+.boton-naranja{
+    background: orange;
+     border-color: #bd7d08;
+}
+.boton-verde{
+    background: #21b921;
+    border-color: green;
+}
+
 
 
    
