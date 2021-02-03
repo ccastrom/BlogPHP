@@ -2,11 +2,16 @@
 
 if (isset($_POST)) {
     require_once 'includes/conexion.php';
+    //Iniciar sesion
+    if (!isset($_SESSION)) {
+        session_start();
+    }
+
     /* Like an if */
-    $nombre = isset($_POST['nombre']) ? $_POST['nombre'] : false;
-    $apellidos = isset($_POST['apellidos']) ? $_POST['apellidos'] : false;
-    $email = isset($_POST['email']) ? $_POST['email'] : false;
-    $password = isset($_POST['password']) ? $_POST['password'] : false;
+    $nombre = isset($_POST['nombre']) ? mysqli_real_escape_string($db, $_POST['nombre']) : false;
+    $apellidos = isset($_POST['apellidos']) ? mysqli_real_escape_string($db, $_POST['apellidos']) : false;
+    $email = isset($_POST['email']) ? mysqli_real_escape_string($db, $_POST['email']) : false;
+    $password = isset($_POST['password']) ? mysqli_real_escape_string($db, $_POST['password']) : false;
 
     //ARRAY DE ERRORES
     $errores = array();
@@ -43,23 +48,22 @@ if (isset($_POST)) {
 
     $guardar_usuario = false;
     if (count($errores) == 0) {
-        
+
         $guardar_usuario = true;
         //CIFRAR CONTRASEÑA
-        $password_segura= password_hash($password,PASSWORD_BCRYPT,['cost'=>4]);
+        $password_segura = password_hash($password, PASSWORD_BCRYPT, ['cost' => 4]);
         //INSERTAR EN LA BASE DE DATOS
-        $query="INSERT INTO usuarios VALUES(NULL,'$nombre','$apellidos','$email','$password_segura',CURDATE());";
-        $insert= mysqli_query($db,$query);
-        
-        
-        if($insert){
-            $_SESSION['completado']='El registro se ha completado con exito';
-        }else{
-            $_SESSION['errores']['general']='Fallo al guardar el usuario';
+        $query = "INSERT INTO usuarios VALUES(NULL,'$nombre','$apellidos','$email','$password_segura',CURDATE());";
+        $insert = mysqli_query($db, $query);
+
+
+        if ($insert) {
+            $_SESSION['completado'] = 'El registro se ha completado con exito';
+        } else {
+            $_SESSION['errores']['general'] = 'Fallo al guardar el usuario';
         }
     }else{
-        $_SESSION['errores']=$errores;
-        
+        $_SESSION['errores'] = $errores;
     }
 }
 header('Location: index.php');
