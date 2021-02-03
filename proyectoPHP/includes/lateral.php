@@ -2,14 +2,23 @@
 
 <!-- Barra lateral -->
 <aside id="sidebar">
-    <?php if(isset($_SESSION['usuario'])): ?>
+    <?php if (isset($_SESSION['usuario'])): ?>
         <div id="usuario-logueado" class="bloque">
-            <h3>Bienvenido,<?=$_SESSION['usuario']['nombre'].' '.$_SESSION['usuario']['apellidos'];?></h3>
-            
+            <h3>Bienvenido,<?= $_SESSION['usuario']['nombre'] . ' ' . $_SESSION['usuario']['apellidos']; ?></h3>
+            <!-- botones -->
+            <a href="cerrar.php" class="boton">Cerrar sesión</a>
+
         </div>
     <?php endif; ?>
     <div id="login" class="bloque">
         <h3>Identificate</h3>
+        <?php if (isset($_SESSION['error_login'])): ?>
+            <div class="alerta alerta-error">
+                <?= $_SESSION['error_login']; ?>
+            </div>
+        <?php endif; ?>
+
+
         <form action="login.php" method="POST">
             <label for="email">email</label>
             <input type="email" name="email"/>
@@ -23,13 +32,13 @@
     <div id="register" class="bloque">
         <h3>Registrate</h3>
         <!-- Mostrar errores-->
-        <?php  if(isset($_SESSION['completado'])): ?>
+        <?php if (isset($_SESSION['completado'])): ?>
             <div class="alerta alerta-exito">
-                    <?=$_SESSION['completado']?>
+                <?= $_SESSION['completado'] ?>
             </div>
-        <?php elseif(isset($_SESSION['errores']['general'])): ?>
+        <?php elseif (isset($_SESSION['errores']['general'])): ?>
             <div class="alerta alerta-error">
-                    <?=$_SESSION['errores']['general']?>
+                <?= $_SESSION['errores']['general'] ?>
             </div>
         <?php endif; ?>
 
