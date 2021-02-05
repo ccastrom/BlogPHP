@@ -19,7 +19,7 @@ if (isset($_POST)) {
 
     if ($login && mysqli_num_rows($login) == 1) {
         $usuario = mysqli_fetch_assoc($login);
-
+        
         //Comprobar la contraseña/cifrar
         $verify = password_verify($password, $usuario['password']);
 

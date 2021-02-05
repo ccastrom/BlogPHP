@@ -1,4 +1,4 @@
-<?php require_once 'helpers.php'; ?> 
+
 
 <!-- Barra lateral -->
 <aside id="sidebar">
@@ -7,8 +7,9 @@
             <h3>Bienvenido,<?= $_SESSION['usuario']['nombre'] . ' ' . $_SESSION['usuario']['apellidos']; ?></h3>
             <!-- botones -->
             <a href="cerrar.php" class="boton boton-verde">Crear entradas</a>
+            <a href="cerrar.php" class="boton boton-morado">Crear categorias</a>
             <a href="cerrar.php" class="boton boton-naranja">Mis datos</a>
-            <a href="cerrar.php" class="boton">Cerrar sesión</a>
+            <a href="cerrar.php" class="boton boton-rojo">Cerrar sesión</a>
 
         </div>
     <?php endif; ?>
@@ -33,7 +34,7 @@
 
     <div id="register" class="bloque">
         <h3>Registrate</h3>
-        <!-- Mostrar errores-->
+        <!-- Mostrar mensajess-->
         <?php if (isset($_SESSION['completado'])): ?>
             <div class="alerta alerta-exito">
                 <?= $_SESSION['completado'] ?>

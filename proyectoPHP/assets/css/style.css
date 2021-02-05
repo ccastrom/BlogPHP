@@ -162,6 +162,14 @@ input[type="submit"],
     background: #21b921;
     border-color: green;
 }
+.boton-morado{
+    background: blueviolet;
+    border-color: blueviolet;
+}
+.boton-rojo{
+    background: red;
+    border-color: red;
+}
 
 
 
