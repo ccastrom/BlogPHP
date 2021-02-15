@@ -13,6 +13,7 @@
 
         </div>
     <?php endif; ?>
+    <?php if (!isset($_SESSION['usuario'])): ?>
     <div id="login" class="bloque">
         <h3>Identificate</h3>
         <?php if (isset($_SESSION['error_login'])): ?>
@@ -66,5 +67,7 @@
         </form>
         <?php borrarErrores(); ?>
     </div>
+    <?php endif; ?>
+    
 
 </aside>
