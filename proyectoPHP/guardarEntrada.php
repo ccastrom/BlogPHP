@@ -14,24 +14,25 @@ if(isset($_POST)){
     }
     
      if(empty($descripcion)){
-        $errrores["titulo"]='La descripción no es valida';
+        $errrores["descripcion"]='La descripción no es valida';
     }
     
      if(!empty($categoria && !is_numeric($categoria))){
-        $errrores["titulo"]='La categoria no es válida';
+        $errrores["categoria"]='La categoria no es válida';
     }
    
     
     if(count($errores)==0){
         $sql="INSERT INTO entradas VALUES(NULL,$usuario,$categoria,'$titulo','$descripcion',CURDATE());";
         $guardar= mysqli_query($db,$sql);
-        
+        header("Location: index.php"); 
         
         
        
         
     }else{
+        
         $_SESSION["errores_entradas"]=$errores;
+        header("Location: crearEntradas.php");
     }
 }
-header("Location: index.php");

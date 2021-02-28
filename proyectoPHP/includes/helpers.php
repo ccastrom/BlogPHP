@@ -11,15 +11,15 @@ return $alerta;
 function borrarErrores(){
 $borrado = false;
 if(isset($_SESSION['errores'])){
-unset($_SESSION['errores']);
+    unset($_SESSION['errores']);
 }
-
+if(isset($_SESSION['errores_entradas'])){
+   $_SESSION['errores_entradas']=null;
+}
 if(isset($_SESSION['completado'])){
-unset($_SESSION['completado']);
+    unset($_SESSION['completado']);
 }
 return $borrado;
-
-
 }
 function conseguirCategorias($conexion){
 $sql = "SELECT * FROM categorias ORDER BY id ASC;";

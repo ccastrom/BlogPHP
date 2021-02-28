@@ -13,10 +13,10 @@ require_once './includes/lateral.php';
     <form action="guardarEntrada.php" method="POST">
         <label for="titulo">Titulo:</label>
         <input type="text" name="titulo"/>
-        
+        <?php echo isset($_SESSION['errores_entradas']) ? mostrarError($_SESSION['errores_entradas'], 'titulo') : ''; ?>
          <label for="descripcion">Descripcion:</label>
          <textarea name="descripcion"/></textarea>
-        
+        <?php echo isset($_SESSION['errores_entradas']) ? mostrarError($_SESSION['errores_entradas'], 'descripcion') : ''; ?>
         <label for="categoria">Categoria</label>
         <select name="categoria">
             <?php 
@@ -32,9 +32,11 @@ require_once './includes/lateral.php';
                  endif;
                 ?>
         </select>
+
         
         <input type="submit" value="Guardar"/>
     </form>
+    <?phpborrarErrores?>
         
 </div>
 <!-- fin principal-->
